@@ -9,7 +9,12 @@ int countElements(Node* tree) {
 }
 
 int countLeafs(Node* tree) {
-    return -1;
+    if (!tree)
+        return 0;
+    if (!tree->left && !tree->right)
+        return 1;
+    else
+        return countLeafs(tree->left) + countLeafs(tree->right);
 }
 
 int height(Node* tree) {
